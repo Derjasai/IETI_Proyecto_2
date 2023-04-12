@@ -108,28 +108,6 @@ function App() {
         <Button leftIcon={<DeleteIcon />} onClick={handleDeleteAll}> Clear All</Button>
       </Flex>
     </Flex>
-    
-    // <div className="App">
-    //   <Header />
-    //   <form onSubmit={handleSubmit}>
-    //     <div>
-    //       <input type="text" id = "newTask" placeholder="Title" value={value} onChange={handleTaskChange} ></input>
-    //       <span className="error" role="alert">{formValidation.task}</span>
-    //     </div>
-        
-    //     <div>
-    //       <input type="text" id = "description" placeholder="Description" value={description} onChange={handleDescriptionChange} />
-    //     </div>
-    //     <button type="submit" disabled={!isFormValid} >Añadir</button>
-    //   </form>
-    //   <TaskList list={initialTasks} onDeleteOne={handleDeleteOne} onChangeState={handleChangeState}/>
-
-    //   <Box>
-    //     <label>You have {pending} pending task(s)</label>
-    //     <IconButton aria-label='Search database' icon={<DeleteIcon />} />
-    //     <button onClick={handleDeleteAll}></button>
-    //   </Box>
-    // </div>
   );
 }
 
