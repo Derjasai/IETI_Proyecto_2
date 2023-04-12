@@ -71,8 +71,8 @@ export function useManageTasks(){
         }
       },[])
 
-    function addTask(value){
-        const newTasks = [...initialTasks, {title:value,isChecked:false}]
+    function addTask(value, description){
+        const newTasks = [...initialTasks, {title:value,isChecked:false,description:description}]
         setInitialTasks(newTasks);
 
         localStorage.setItem('tasks',JSON.stringify(newTasks));

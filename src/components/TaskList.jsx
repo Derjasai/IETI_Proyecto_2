@@ -15,7 +15,7 @@ export const TaskList = (props) => {
     return(
         <ul>
             {list.map((task)=>{
-                return <Task key={task.title} title = {task.title} isPending = {task.isChecked} onDelete={handleDeleteOne} onChangeState={handleChangeState}/>;
+                return <Task key={task.title} title = {task.title} isPending = {task.isChecked} description={task.description} onDelete={handleDeleteOne} onChangeState={handleChangeState}/>;
             })}
         </ul>
     )

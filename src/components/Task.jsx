@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useTaskList } from "../hooks/useTaskList";
 
 export const Task = (props)=>{
     const {title, isPending, description, onDelete, onChangeState} = props;
@@ -22,7 +21,11 @@ export const Task = (props)=>{
                 <div>
                     <input type="checkbox" checked={isChecked} onChange={handleChangeState} />
                     <label id="{title}" style={isChecked ? { textDecoration: "line-through" } : {}}> {title} </label>
+                    
                     <button onClick={handleDelete}>Eliminar</button>
+                </div>
+                <div>
+                    <p>{description}</p>
                 </div>
             </article>
         </li>
