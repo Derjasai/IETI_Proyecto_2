@@ -1,6 +1,6 @@
 function Header() {
     return (
-      <h1>Task List</h1>
+      <h1>Tacha</h1>
     );
   }
   
