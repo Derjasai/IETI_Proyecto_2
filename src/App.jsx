@@ -1,6 +1,8 @@
 import Header from "./components/Header"
 import { TaskList } from "./components/TaskList"
 import { useState } from "react";
+import { Button, Flex, Input, Box, Text } from "@chakra-ui/react";
+import { DeleteIcon } from "@chakra-ui/icons";
 
 import { useManageTasks, useTaskList } from "./hooks/useTaskList";
 
@@ -82,26 +84,52 @@ function App() {
   );
 
   return (
-    <div className="App">
+    <Flex alignItems="center" justifyContent="center" minHeight="auto" flexDirection="column">
       <Header />
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input type="text" id = "newTask" placeholder="Title" value={value} onChange={handleTaskChange} ></input>
-          <span className="error" role="alert">{formValidation.task}</span>
-        </div>
+      <Flex maxWidth={300} flexDirection="column" >
+        <form onSubmit={handleSubmit}>
+        <Box mt={2}>
+          <Input type="text" id = "newTask" placeholder="Title" value={value} onChange={handleTaskChange} width={300}></Input>
+          <label className="error" role="alert">{formValidation.task}</label>
+          <Input type="text" id = "description" placeholder="Description" value={description} onChange={handleDescriptionChange} mt={2}></Input>
+        </Box>
+        <Box mt={2}>
+          <Button type="submit" disabled={!isFormValid}>Add Task</Button>
+        </Box>
+        </form>
+      </Flex>
+
+      <Flex>
+        <TaskList list={initialTasks} onDeleteOne={handleDeleteOne} onChangeState={handleChangeState}/>
+      </Flex>
+
+      <Flex alignItems="center" justifyContent="center" minHeight="auto" flexDirection="column">
+        <Text pt='2' fontSize='s'>You have {pending} pending task(s)</Text>
+        <Button leftIcon={<DeleteIcon />} onClick={handleDeleteAll}> Clear All</Button>
+      </Flex>
+    </Flex>
+    
+    // <div className="App">
+    //   <Header />
+    //   <form onSubmit={handleSubmit}>
+    //     <div>
+    //       <input type="text" id = "newTask" placeholder="Title" value={value} onChange={handleTaskChange} ></input>
+    //       <span className="error" role="alert">{formValidation.task}</span>
+    //     </div>
         
-        <div>
-          <input type="text" id = "description" placeholder="Description" value={description} onChange={handleDescriptionChange} />
-        </div>
-        <button type="submit" disabled={!isFormValid} >Añadir</button>
-      </form>
-      <TaskList list={initialTasks} onDeleteOne={handleDeleteOne} onChangeState={handleChangeState}/>
-      <div>
-        <label>You have {pending} pending task(s)</label>
-        <button onClick={handleDeleteAll}>Clear All</button>
-      </div>
-      
-    </div>
+    //     <div>
+    //       <input type="text" id = "description" placeholder="Description" value={description} onChange={handleDescriptionChange} />
+    //     </div>
+    //     <button type="submit" disabled={!isFormValid} >Añadir</button>
+    //   </form>
+    //   <TaskList list={initialTasks} onDeleteOne={handleDeleteOne} onChangeState={handleChangeState}/>
+
+    //   <Box>
+    //     <label>You have {pending} pending task(s)</label>
+    //     <IconButton aria-label='Search database' icon={<DeleteIcon />} />
+    //     <button onClick={handleDeleteAll}></button>
+    //   </Box>
+    // </div>
   );
 }
 

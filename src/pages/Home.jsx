@@ -1,8 +1,10 @@
+import { Heading, Text } from "@chakra-ui/react";
+
 export function Home() {
     return (
       <div>
-        <h1>Tacha</h1>
-        <h4>Tu lista de tareas preferida</h4>
+        <Heading as='h1' size='4xl' noOfLines={1}>Tacha</Heading>
+        <Text size='md'>Tu lista de tareas preferida</Text>
       </div>
     );
 }

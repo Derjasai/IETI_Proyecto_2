@@ -1,6 +1,8 @@
+import { Heading } from "@chakra-ui/react";
+
 function Header() {
     return (
-      <h1>Tacha</h1>
+      <Heading>Tacha</Heading>
     );
   }
   
