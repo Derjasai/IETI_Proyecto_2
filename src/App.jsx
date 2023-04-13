@@ -1,6 +1,6 @@
 import Header from "./components/Header"
 import { TaskList } from "./components/TaskList"
-import { useState,useEffect } from "react";
+import { useState } from "react";
 
 import { useManageTasks, useTaskList } from "./hooks/useTaskList";
 
